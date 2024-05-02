@@ -2,9 +2,10 @@
   "name": "nodejs",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --inspect main.js",
+    "start": "nodemon --inspect src/index.js",
+    "watch": "sass --watch src/resources/scss/ -o src/public/css/ --no-source-map",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,10 +23,11 @@
   },
   "homepage": "https://github.com/DoNguyenUIT/nodejs_blog#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
-    
+    "nodemon": "^3.1.0",
+    "sass": "^1.76.0"
   }
 }

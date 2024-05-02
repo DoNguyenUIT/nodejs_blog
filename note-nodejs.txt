@@ -1,0 +1,29 @@
+-sau khi ta tải thành công nodejs, thì nó đã tự tạo npm(1 bộ công cụ quản lý, được tải kèm sau khi tải nodejs)
+- ta dung 'npm init' để khởi tạo 1 project, có thể tạo 1 git rồi link nó vào --> sau nó tạo thành file 'package.json'( quản lí những cái mà dự án bạn phụ thuộc)
+-sau khi npm install express' sẽ tạo ra file package-lock.json( quản lý những cái mà express phụ thuộc)
+- sau  chạy bang lệnh "node index.js" sẽ lắng Nghe file index.js, rồi chạy http://localhost:3000 sẽ thấy được nội dung
+
+
+- handlebar giúp cho chia layout dễ hơn,ể các file html  nơi khác cho gọn
+những thành phần chung không thay đổi như : taskbar(header, phần thông tin liên hệ-footer( trang nào cũng đó)
+
+-npm i nodemon --save-dev(vì chỉ sử dung trong lúc xây dung, không dung trong môi trường dự án that nên --save-dev : lắng Nghe sự thay đổi trong ứng dung khi bạn đổi code mà không cần phải chạy lại(tự động restart khi phát hiện thay đổi)
+- inspector: để dễ debug
+- npm i morgan --save-dev :xem chi tiết cá request ( không quan trọng)
+-  "start": "nodemon --inspect src/index.js"(trong package.json): để chạy chỉ cần npm start
+-npm install sass --save-dev
+vì trình duyệt k hiểu sass nên phải generate ra css 
+"watch": "sass --watch src/resources/scss/ -o src/public/css/ --no-source-map",(trong file package.json)(--watch : tự lắng Nghe sự thay đổi)(-o để cấu trúc như thế thì nó sẽ lắng Nghe sự thay đổi của cả folder, không cần chỉ rõ file nào
+npm run watch để chạy
+-lưu ý: không bao giờ viết code vào css, chỉ viết vào scss, và viết vào resources( file css chỉ là file được build ra từ scss
+
+- ta có thể mở 2 của sổ terminal chạy song song : 1 chạy npm run watch để lắng Nghe sự thay dổi các file scss
+						1 chạy npm start để chạy nodemon lắng Ngheự thayổi handlebar
+- file nodemon.json
+để lắng Nghe các trường mà nó bỏ vào
+cần lắng Nghe file nào thì bỏ vào đó
+
+{
+    "ext": "js json hbs"
+}
+

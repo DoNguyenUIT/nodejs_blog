@@ -1,0 +1,51 @@
+{{!-- file main này sẽ là layout nên bỏ trong thư mục layout:bố cục --}}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {{!-- import bootstrap5 --}}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    {{!-- khi / nó đã lao vào public ta chỉ cần thêm css/app.css --}}
+    <link rel="stylesheet" href="/css/app.css">
+  </head>
+  <body>
+    {{!-- cả cái app này sẽ hiển thị lên web --}}
+    <div class="app">
+        {{!-- phần header này sẽ không thay đổi mặc dù đổi trang vd như taskbar --}}
+      {{!-- <header>
+        <h1>
+          HEADER
+        </h1>
+      </header> --}}
+
+
+    {{!-- import phần footer từ file footer trong thư mục partials --}}
+      {{> header}}
+
+{{!-- phần container này thì có thể thay đổi, khi ta render cái gì ở bên main.js thì nó sẽ truyền cái đó vào body vd như đang truyên home
+thì nó sẽ truyền thẻ h1 trong home.handlebars
+ --}}
+      <div class="container">
+        {{! khi làm vậy thì ctrl u web sẽ thấy là nó lấy thẻ h1 trong home.handlebars bỏ vào body bên dưới để hiển thị lên web }}
+        {{{body}}}
+      </div>
+      
+      {{!-- import phần footer từ file footer trong thư mục partials --}}
+      {{> footer}}
+
+      
+{{!-- phần footer này cũng sẽ không thay đổi giống như vd: phần liên hệ ở cuối trang --}}
+      {{!-- <footer>
+        <h1>
+          FOOTER
+        </h1>
+      </footer> --}}
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+  </body>
+</html>
