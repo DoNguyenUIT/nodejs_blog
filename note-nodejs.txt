@@ -27,3 +27,29 @@ cần lắng Nghe file nào thì bỏ vào đó
     "ext": "js json hbs"
 }
 
+
+- nhuwngx URL mà tồn tại duy nhất ví dụ "http://localhost:3000/news"  được gọi là URI
+
+Each route can have one or more handler functions, which are executed when the route is matched.( mỗi tuyến đường thì có thể có 1 haowcj nhiều hàm xử lí việc gì  đó, sẽ được thực thi khi route đúng 
+
+app.METHOD(PATH, HANDLER)
+
+
+Where:
+app is an instance of express. là 1 phiên bản cụ thể của express
+METHOD giao thức http ví dụ như get push post,... viết dạng chữ thường
+PATH là đường dẫn trên server : có nghĩa là khi ta npm start có nghĩa ta đang khởi tạo trên 1 server, chạy trên máy mình gọi là local host, khi ta thue 1 host bên ngoài thì là máy chủ bên ngoài
+HANDLER is the function executed when the route is matched
+
+
+
+app.get("/news", (req, res) => {
+  //app.METHOD(PATH, HANDLER)  trong đó get là method ,/news là path , còn lại là handler
+  // chọn render đến news.hbs
+  res.render("news");
+});
+
+
+request:chứa những thông tin mà ứng dung phía client  của bạn  yêu cầu  lên server- server sẽ dựa vào đó để biết client muốn lấy gì để trả về
+
+respone: ta có thể sử dung biến này để có thể tự cấu hình cho trả về client cái gì

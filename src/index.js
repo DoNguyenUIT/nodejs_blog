@@ -8,6 +8,13 @@ const handlebars = require("express-handlebars");
 const app = express();
 //lấy trên web express
 const port = 3000;
+const route = require('./routes')//nó tự chọc vào file index.js trong route
+app.use(express.urlencoded(
+  {
+    extended: true // khỏi còn warning , vì phương thức urlencoded và json đang sử dụng thư viện body-parser, express đã tích hợp sẵn nên chỉ cần thêm dòng này
+  }
+)); // middleware để xử lí dữ liệu từ form submit trong html với phương thức post , (get đã tự có hỗ trợ)
+app.use(express.json()); //hỗ trợ cho các các đoạn code js lên , xml, axios, fetch, nếu chỉ với  form html thì cái này không cần
 // set cho nó khi mở local:3000 thì mặc định đang ở public
 // khi localhost:3000/img/logo.png thì mở được ảnh
 // nếu ở trong đó để public/img thì chỉ cần localhost:3000/logo.png
@@ -29,19 +36,10 @@ app.set("view engine", "hbs"); //set cho view engine là tên handlebars đã đ
 // đưa vào thư mục views để lấy ra 2 file home.hbs hoặc news.hbs
 // bắt đầu từ src
 app.set("views", path.join(__dirname, "./resources/views"));
+//khỏi tạo tuyến đường (hàm route trong file routes/index.js )
+route(app);
 
-// route:định nghĩa tuyến đường
-// mặc định localhost:3000  là home do có dấu / là trang hiện tại
-//lấy trên web express
-app.get("/", (req, res) => {
-  // chọn render đến home.hbs
-  res.render("home");
-});
-// khi đó vẫn header và footer cũ (như home) thay body thành news
-app.get("/news", (req, res) => {
-  // chọn render đến news.hbs
-  res.render("news");
-});
+
 // 127.0.0.1 - localhost ví dụ như http://127.0.0.1:3000 bằng với http://localhost:3000
 //lấy trên web express
 // app được khởi tạo từ thằng express và lắng nghe cổng 3000

@@ -1,0 +1,30 @@
+<div class="mt-4">
+  {{!-- acction có tác dụng khi ta serch cái gì vào đó nó sẽ chuyển sang trang news --}}
+  <form method="post" action="" > 
+      <div  class="form-group">
+
+    
+      <select name="gender" type="text" class="form-control" id="search-input">
+         <option value="">--chọn giới tính--</option>
+         <option value="male">nam</option>
+         <option value="female">nữ</option>   
+      </select>
+       
+       
+      
+    </div>
+    <div class="form-group">
+
+      <input
+        name="q"
+        type="text"
+        class="form-control"
+        id="search-input"
+        placeholder="nhập từ khóa..."
+      />
+    </div>
+  
+
+    <button type="submit" class="btn btn-primary">tim kiem</button>
+  </form>
+</div>
